@@ -1,0 +1,26 @@
+application: halflifeinbox
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+# Static resources
+- url: /favicon\.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon\.ico
+- url: /static
+  static_dir: static
+
+- url: .*
+  script: handle_main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: markupsafe
+  version: "0.15"
+- name: jinja2
+  version: "2.6"
+- name: pycrypto
+  version: "2.6"
