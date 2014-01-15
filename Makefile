@@ -3,6 +3,8 @@ PYTHON = /usr/local/bin/python
 APPENGINE = /usr/local/google_appengine
 
 # This only required for deployment
+# CLOSURE = /Users/antonio/Documents/Development/Tools/closure
+# LESS = /usr/local/share/npm/bin/lessc
 CLOSURE = closure
 LESS = lessc
 
