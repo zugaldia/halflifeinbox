@@ -3,10 +3,8 @@ PYTHON = /usr/local/bin/python
 APPENGINE = /usr/local/google_appengine
 
 # This only required for deployment
-CLOSURE = /Users/antonio/Documents/Development/Tools/closure
-LESS = /usr/local/share/npm/bin/lessc
-# CLOSURE = closure
-# LESS = lessc
+CLOSURE = closure-compiler
+LESS = lessc
 
 # App paths
 APP_ROOT = app
@@ -36,7 +34,7 @@ deploy: minify-js minify-css
 		update $(APP_ROOT)
 
 minify-js:
-	java -jar $(CLOSURE)/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS \
+	$(CLOSURE) --compilation_level SIMPLE_OPTIMIZATIONS \
 		--js=$(APP_SCRIPTS)/dev/halflife.js \
 		--js_output_file=$(APP_SCRIPTS)/halflife.min.js
 
