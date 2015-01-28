@@ -20,4 +20,4 @@ Who knew, the same rules governing Chemical reactions, Electrostatics, Fluid Dyn
 
 ## Feedback
 
-Feel free to contact us with your feedback (via [Twitter](https://twitter.com/zugaldia) or [G+](https://plus.google.com/+AntonioZugaldia), for example). We use this method regularly, but we're just a few data points.
+We use this method regularly, but we're just a few data points. Feel free to contact us with your feedback ([Twitter](https://twitter.com/zugaldia), [Google+](https://plus.google.com/+AntonioZugaldia)). 
