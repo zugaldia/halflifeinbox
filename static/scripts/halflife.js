@@ -5,7 +5,7 @@ angular.module('halfLife', ['ngRoute']).
 config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl: '/static/partials/main.html',
+            templateUrl: 'static/partials/main.html',
             controller: 'MainCtrl'
         });
         $routeProvider.otherwise({
