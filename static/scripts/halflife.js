@@ -1,8 +1,7 @@
-/*global gapi:false, angular:false */
-
 'use strict';
 
 angular.module('halfLife', ['ngRoute']).
+
 config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.when('/', {
@@ -14,6 +13,7 @@ config(['$routeProvider',
         });
     }
 ]).
+
 controller('MainCtrl', ['$scope', '$log', function($scope, $log) {
     // Sample data
     $scope.firstDay = 100;
@@ -25,7 +25,7 @@ controller('MainCtrl', ['$scope', '$log', function($scope, $log) {
     $scope.halfLife = null;
     $scope.emailPlan = null;
 
-    // Apparently we can only a get number
+    // Apparently we can only get a number
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 

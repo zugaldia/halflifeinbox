@@ -1,9 +1,3 @@
-<div class="alert alert-info">
-	<p><span class="fui-alert"></span>
-		Announcement:
-	<a href="http://blog.silicalabs.com/post/73441741769/half-life-inbox-a-realistic-way-to-tackle-e-mail">Half-Life Inbox: A Realistic Way to Tackle E-mail</a></p>
-</div>
-
 <div class="well well-lg hli-top" id="top">
 	<h4>
 		<form class="form-inline" role="form">
@@ -22,10 +16,6 @@
 		days.
 		How many emails do I need to answer every day?
 		</form>
-
-		<!-- <div class="alert alert-error hli-error">
-			This is an error.
-		</div> -->
 	</h4>
 </div>
 
@@ -47,7 +37,7 @@
 						Today</div>
 					<div ng-show="entry.day===halfLife">
 						Half-life
-						<span class="fui-arrow-right text-primary"></span></div>
+						<span class="glyphicon glyphicon-chevron-right text-primary"></span></div>
 					<div ng-show="entry.day===emailPlan.length-1">
 						Done!
 					</div>
@@ -71,7 +61,7 @@
 	<h4 id="about">About</h4>
 </div>
 
-<h6>The hypothesis</h6>
+<h4>The hypothesis</h4>
 
 <ol>
 	<li>You go on vacation, you focus in a project, and when you come back your inbox has exploded.</li>
@@ -85,25 +75,27 @@
 	<li>To catch up, it helps having a deadline.</li>
 </ol>
 
-<h6>The solution</h6>
+<h4>The solution</h4>
 
 <p>
-We follow an <a href="http://en.wikipedia.org/wiki/Exponential_decay">exponential decay model</a>
-to solve the problem. That means the speed you empty your inbox is proportional to the number of remaining emails in your inbox. Check out the Wikipedia chart to get a visual idea.</p>
+	We follow an <a href="http://en.wikipedia.org/wiki/Exponential_decay">exponential decay model</a>
+	to solve the problem. That means the speed you empty your inbox is proportional to the number of remaining emails in your inbox. Check out the Wikipedia chart to get a visual idea.</p>
 
 <p>
-Who knew, the same rules governing Chemical reactions, Electrostatics, Fluid Dynamics, Geophysics,
-Heat transfer, Luminescence, Pharmacology and toxicology, Physical optics, Radioactivity,
-Thermoelectricity, or Vibrations may apply to inboxes as well.
+	Who knew, the same rules governing Chemical reactions, Electrostatics, Fluid Dynamics, Geophysics,
+	Heat transfer, Luminescence, Pharmacology and toxicology, Physical optics, Radioactivity,
+	Thermoelectricity, or Vibrations may apply to inboxes as well.
 </p>
 
-<h6>Feedback</h6>
+<h4>Feedback</h4>
 
-<p>Feel free to contact us with your feedback
-	(via <a href="https://twitter.com/zugaldia" class="fui-twitter"></a> or 
-	<a href="https://plus.google.com/+AntonioZugaldia" class="fui-googleplus"></a>, for example).
-	We use this method regularly, but we're just a few data points.</p>
+<p>
+	We use this method regularly, but we're just a few data points.
+	Feel free to contact us with your feedback
+	(<a href="https://twitter.com/zugaldia">Twitter</a> or 
+	<a href="https://plus.google.com/+AntonioZugaldia">Google+</a>).
+</p>
 
-<p>The code is also <a href="https://github.com/silicalabs/halflifeinbox">available in GitHub</a>, feel free to provide PRs or <a href="https://github.com/silicalabs/halflifeinbox/issues">suggest any improvements</a>.</p>
-
-<br>
+<p>The code is <a href="https://github.com/zugaldia/halflifeinbox">available on GitHub</a>,
+feel free to provide pull requests or
+<a href="https://github.com/zugaldia/halflifeinbox/issues">suggest any improvements</a>.</p>

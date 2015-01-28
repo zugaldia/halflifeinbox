@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Half Life Inbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+
+    <!-- Styles -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/styles/halflife.css" rel="stylesheet">
+    <!-- <link href="/static/build/halflife.min.css" rel="stylesheet"> -->
+    
+    <!-- Code -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-route.min.js"></script>
+    <script src="/static/scripts/halflife.js"></script>
+    <!-- <script src="/static/build/halflife.min.js"></script> -->
+
+  </head>
+  <body ng-app="halfLife">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#/#top">Half Life Inbox</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav">               
+                <li><a href="#/#top">Home</a></li>
+                <li><a href="#/#about">About</a></li>
+            </ul>            
+        </div>
+    </nav>
+
+    <div class="container">
+      <div ng-view></div>
+    </div>
+
+    <!-- bottom-menu -->
+    <div class="bottom-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 navbar-brand">
+                    <a href="#/#top">Half Life Inbox</a>
+                </div>
+                <div class="col-md-8">
+                    <ul class="bottom-links">
+                        <li>An experiment from <a href="http://www.zugaldia.net">Antonio Zugaldia</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="bottom-icons">
+                        <li><a href="https://plus.google.com/+AntonioZugaldia">Google+</a></li>
+                        <li><a href="https://twitter.com/zugaldia">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>
