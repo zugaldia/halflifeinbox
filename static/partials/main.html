@@ -3,15 +3,18 @@
 		<form class="form-inline" role="form">
 		I currently have
 		<div class="form-group">
-			<input type="number" class="form-control input-lg" ng-model="firstDay" placeholder="Number of emails today">
+			<input type="number" class="form-control input-lg" ng-model="data.firstDay"
+				placeholder="Number of emails today">
 		</div>
 		emails in my inbox and I want to reduce that number to
 		<div class="form-group">
-			<input type="number" class="form-control input-lg" ng-model="lastDay" placeholder="Wished number of emails">
+			<input type="number" class="form-control input-lg" ng-model="data.lastDay"
+				placeholder="Wished number of emails">
 		</div>
 		emails in
 		<div class="form-group">
-			<input type="number" class="form-control input-lg" ng-model="totalDays" placeholder="Total number of days">
+			<input type="number" class="form-control input-lg" ng-model="data.totalDays"
+				placeholder="Total number of days">
 		</div>
 		days.
 		How many emails do I need to answer every day?
@@ -20,6 +23,19 @@
 </div>
 
 <p>To clean up your inbox, follow the schedule below. In every row you see the number of emails you need to leave in your inbox by the end of the day. That means you need to take care of <em>both existing emails and incoming emails</em>.</p>
+
+<div class="row">
+	<div class="col-xs-6 hli-col-checkbox">
+		<input type="checkbox"
+	       ng-model="data.avoidWeekends"
+	       ng-change="onAvoidWeekendsChange()"> Avoid weekends
+	</div>
+	<div class="col-xs-6 hli-col-checkbox">
+		<input type="checkbox"
+	       ng-model="data.startFirstDay"
+	       ng-change="onStartFirstDayChange()"> Start on first day
+	</div>
+</div>
 
 <div class="table-responsive">
 	<table class="table table-striped">
@@ -30,29 +46,35 @@
 				<th>Date</th>
 				<th>Number of emails in your inbox</th>
 			</tr>
-			<tr ng-repeat="entry in emailPlan">
+			<tr ng-repeat="entry in data.emailPlan">
 				<td>Day {{ entry.day }}</td>
 				<td>
 					<div ng-show="entry.day===0">
-						Today</div>
-					<div ng-show="entry.day===halfLife">
+						Start</div>
+					<div ng-show="entry.day===data.halfLife">
 						Half-life
 						<span class="glyphicon glyphicon-chevron-right text-primary"></span></div>
-					<div ng-show="entry.day===emailPlan.length-1">
+					<div ng-show="entry.day===data.emailPlan.length-1">
 						Done!
 					</div>
 				</td>
-				<td>{{ entry.expectedDate }}</td>
-				<td>{{ entry.remaining }} emails</td>
+				<td>{{ entry.formattedDate }}</td>
+				<td>
+					{{ entry.remaining }} emails
+					<span ng-show="entry.totalDay > 0">
+						&mdash; you need to answer {{ entry.totalDay }}+ emails
+					</span>
+				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 
 <div class="alert alert-success">
-	<p>The nerdy details: You need to stick to a decay rate of {{ decayRate }}/day.</p>
-	<p>This gives you a <strong>half-life of {{ halfLife }} days</strong> &mdash;
-	that's the number of days you need to bring your inbox to half of its initial size ({{ firstDay }} emails).</p>
+	<p>The nerdy details: You need to stick to a decay rate of {{ data.decayRate }}/day.</p>
+	<p>This gives you a <strong>half-life of {{ data.halfLife }} days</strong> &mdash;
+	that's the number of days you need to bring your inbox to half of its initial size
+	({{ data.firstDay }} emails).</p>
 </div>
 
 <br>
@@ -64,7 +86,8 @@
 <h4>The hypothesis</h4>
 
 <ol>
-	<li>You go on vacation, or you focus in a project, and when you come back your inbox has exploded.</li>
+	<li>You go on vacation, or you focus in a project,
+		and when you come back your inbox has exploded.</li>
 	<li>At the beginning, it's easier to clean up messages
 		(newsletters, outdated notifications, stuff you're in CC).
 		Then it gets harder (emails you actually need to think and type, emails you can only answer).</li>
