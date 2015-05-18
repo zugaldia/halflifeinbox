@@ -31,20 +31,14 @@ app.controller('MainCtrl', ['$scope', '$log', function($scope, $log) {
         'halfLife': null,
         'emailPlan': null};
 
-    // Sample data
-    $scope.data.firstDay = 100;
-    $scope.data.lastDay = 10;
-    $scope.data.totalDays = 14;
-
-    // Results
-    $scope.data.decayRate = null;
-    $scope.data.halfLife = null;
-    $scope.data.emailPlan = null;
-
     // Apparently we can only get a number
     var months =
         ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    /*
+     * Trigger updates
+     */
 
     $scope.$watch('data.firstDay', function(newValue, oldValue, scope) {
         $scope.updateExponentialDecay();
@@ -66,6 +60,10 @@ app.controller('MainCtrl', ['$scope', '$log', function($scope, $log) {
         $scope.updateExponentialDecay();
     };
 
+    /*
+     * Equation
+     */
+
     $scope.getDecayRate = function(totalDays, lastDay, firstDay) {
         return (-1.0 / totalDays) * Math.log(1.0 * lastDay / firstDay);
     };
@@ -78,6 +76,10 @@ app.controller('MainCtrl', ['$scope', '$log', function($scope, $log) {
         return 1.0 * Math.log(2.0) / decayRate;
     };
 
+    /*
+     * Utils
+     */
+
     $scope.isWeekend = function(today) {
         // Check for Saturday and Sunday
         return (
@@ -85,21 +87,32 @@ app.controller('MainCtrl', ['$scope', '$log', function($scope, $log) {
             today.getDay() === 0);
     };
 
+    /*
+     * Main method
+     */
+
     $scope.updateExponentialDecay = function() {
         // Decay rate
         $scope.data.decayRate = $scope.getDecayRate(
-            $scope.data.totalDays, $scope.data.lastDay, $scope.data.firstDay);
+            $scope.data.totalDays,
+            $scope.data.lastDay,
+            $scope.data.firstDay);
         
         // Half life
         $scope.data.halfLife = Math.ceil(
             $scope.getHalfLife($scope.data.decayRate));
 
-        // Plan
+        // Move the day one day up if we want to start on the first day.
+        // Also, if we want to avoid weekends, we need to move that day
+        // out of the weekend.
         var today = new Date();
         if ($scope.data.startFirstDay) {
-            today.setDate(today.getDate() - 1);
+            do {
+                today.setDate(today.getDate() - 1);
+            } while ($scope.data.avoidWeekends && $scope.isWeekend(today));
         }
 
+        // Plan
         $scope.data.emailPlan = [];
         for (var day = 0; day < $scope.data.totalDays + 1; day++) {
             var remaining = Math.ceil(
